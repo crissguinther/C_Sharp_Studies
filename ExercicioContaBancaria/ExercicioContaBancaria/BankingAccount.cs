@@ -8,64 +8,38 @@ namespace ExercicioContaBancaria
 {
     internal class BankingAccount
     {
-        private int _id;
+        private int ID { get; set; }
         private string Name { get; set; }
-        private double _balance;
+        private double Balance { get; set; }
 
         public BankingAccount() { }
 
         public BankingAccount(int id, string name) : this()
         {
-            _id = id;
+            ID = id;
             Name = name;
         }
 
         public BankingAccount(int id, string name, double balance) : this(id, name)
         {
-            _balance = balance;
-        }
-
-        public int ID
-        {
-            get
-            {
-                return _id;
-            }
-
-            set
-            {
-                return;
-            }
-        }
-
-        public double Balance
-        {
-            get
-            {
-                return _id;
-            }
-
-            set
-            {
-                return;
-            }
+            Deposit(balance);
         }
 
         public double Deposit(double value)
         {
-            _balance += value;
-            return _balance;
+            Balance += value;
+            return Balance;
         }
 
         public double Withdraw(double value)
         {
-            _balance -= (value + 5);
-            return _balance;
+            Balance -= (value + 5);
+            return Balance;
         }
 
         public override string ToString()
         {
-            return $"Account ID: {_id} \n Account Owner: {Name} \n Balance: ${_balance}";
+            return $"\n Account ID: {ID} \n Account Owner: {Name} \n Balance: ${Balance} \n";
         }
     }
 }
